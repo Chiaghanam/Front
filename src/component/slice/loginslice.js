@@ -1,16 +1,20 @@
 import axios from 'axios';
-import PROXY from '../Constants/api';
+import {PROXY} from '../Constants/api';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 
 export const fetchUserInfo = createAsyncThunk(
   'login/fetchUserInfo',
-  async ({ email, password }, thunkAPI) => {
+  async ({ username, password }, thunkAPI) => {
     try {
-      const response = await axios.post(PROXY + '/api/token/', { email, password });
+      console.log('Attempting login with:', { username, password });
+      const response = await axios.post(PROXY + 'api/token/', { username, password });
+      console.log('Login response:', response.data);
       return response.data; 
     } catch (error) {
-      return thunkAPI.rejectWithValue('Login failed');
+      console.error('Login error response:', error.response?.data);
+      console.error('Login error status:', error.response?.status);
+      return thunkAPI.rejectWithValue(error.response?.data?.detail || 'Login failed');
     }
   }
 );
@@ -50,5 +54,5 @@ const loginSlice = createSlice({
   },
 });
 
-export const { logout } = loginSlice.actions;
+export const { logout, pending, fulfilled, rejected } = loginSlice.actions;
 export default loginSlice.reducer;

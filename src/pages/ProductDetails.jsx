@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductDetail } from '../component/slice/ProductDetailslice';
 import { PROXY } from '../component/Constants/api'
 import { addToCart } from '../component/slice/cartslice';
-import Header from '../component/Header';
-import Footer from '../component/Footer';
+// import Header from '../component/Header';
+// import Footer from '../component/Footer';
 
 
 const ProductDetails = () => {
@@ -22,7 +22,7 @@ const ProductDetails = () => {
 
   return (
     <div>
-        <Header />
+        {/* <Header /> */}
         <div>
             {loading? <p>Loading...</p>
             : error ? <p>Error: {error}</p>
@@ -55,7 +55,7 @@ const ProductDetails = () => {
             : <p>No product found.</p>
             }
         </div>
-            <Footer />
+            {/* <Footer /> */}
            
     </div>
   )

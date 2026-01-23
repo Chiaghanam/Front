@@ -6,7 +6,16 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaOpencart } from "react-icons/fa6";
 import { RiHome3Fill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from './slice/loginslice';
+
 const Header = () => {
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.login.userInfo);
+
+  const handlelogout = () => {
+    dispatch(logout());
+  }
   return (
     <Navbar expand="lg" className="bg-body-dark top-0 position-sticky opacity-100 w-100">
       <Container>
@@ -16,6 +25,13 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link as={Link} to={'/'} ><RiHome3Fill />Home </Nav.Link>
             <Nav.Link as={Link} to={'/Cart'}> <FaOpencart  />Cart </Nav.Link>
+            {userInfo ? (
+              <Nav.Link as={Link} to={'/profile'}> {userInfo.name} </Nav.Link>
+            ) : null}
+            {userInfo ? (
+              <Nav.Link as={Link} to={'/'} onClick={() => handlelogout()}> Logout </Nav.Link>
+            ) : <Nav.Link as={Link} to={'/login'}> Login </Nav.Link>}
+            
             <NavDropdown title="Dropdown" id="basic-nav-dropdown" >
               <NavDropdown.Item href="#action/3.1" className='text-dark'>Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2" className='text-dark'>

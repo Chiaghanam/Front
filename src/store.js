@@ -6,6 +6,9 @@ import ProductReducer from './component/slice/productslice';
 import ProductDetailReducer from './component/slice/ProductDetailslice';
 import  cartReducer  from './component/slice/cartslice';
 import  loginReducer  from './component/slice/loginslice';
+import  registerReducer  from './component/slice/registerslice';
+import updateProfileReducer from './component/slice/updateProfile';
+import Shippingreducer from './component/slice/shippingslice';
 
 
 const store = configureStore({
@@ -14,6 +17,9 @@ const store = configureStore({
         productDetail: ProductDetailReducer,
         cart: cartReducer,
         login: loginReducer,
+        register: registerReducer,
+        updateProfile: updateProfileReducer,
+        shipping: Shippingreducer,
 
     },
    

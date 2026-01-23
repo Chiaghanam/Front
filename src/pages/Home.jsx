@@ -1,15 +1,17 @@
 import React from 'react';
 // import { useEffect } from 'react';
-import Header from '../../../front/src/component/Header';
-import Footer from '../../../front/src/component/Footer';
+// import Header from '../../../front/src/component/Header';
+// import Footer from '../../../front/src/component/Footer';
 import { fetchproduct } from '../component/slice/productslice';  
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { PROXY } from '../component/Constants/api';
+
 const Home = () => {
   const dispatch = useDispatch();
   const { data, isloading, error } = useSelector((state) => state.products); 
+  const userInfo = useSelector((state) => state.login.userInfo);
 
   useEffect(() => {
     dispatch(fetchproduct());
@@ -17,10 +19,10 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <main>
         <div className="container mt-4 text-center">
-          <h1>Welcome to EShop</h1>
+          <h1>Welcome {userInfo?.name || ''}</h1>
           <p>Your one-stop shop for all your needs!</p>
 
           {isloading ? (
@@ -47,7 +49,7 @@ const Home = () => {
           )}
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

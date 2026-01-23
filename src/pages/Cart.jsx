@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import Header from '../component/Header';
-import Footer from '../component/Footer';
+import React, { useState } from 'react';
+// import Header from '../component/Header';
+// import Footer from '../component/Footer';
 import { useSelector, useDispatch } from 'react-redux';
 import { PROXY } from '../component/Constants/api';
 import { removeFromCart } from '../component/slice/cartslice';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { item: cartdata, totalprice } = useSelector((state) => state.cart);
+  const [selectedNum, setSelectedNum] = useState(1);
 
   const handleRemoveCart = (payload) => {
     dispatch(removeFromCart(payload));
   };
+  
   const minAmount = 1;
   const price = ({amount}) => {
     return amount.toFixed(2);
   }
- const [selectedNum, setSelectedNum] = useState(minAmount);
 
   // useEffect(() => {
   //   const changequantity =(selectedNum)=>{
@@ -30,7 +33,7 @@ const Cart = () => {
   // },[selectedNum])
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="row">
         <h5>Total price: ${price({amount: totalprice})}</h5>
         <div className="col-11">
@@ -76,8 +79,14 @@ const Cart = () => {
             );
           })}
         </div>
+        {
+          cartdata.length > 0 && (
+            <button className='btn btn-success' type="submit" onClick={() => navigate('/Shipping')}>Checkout</button>
+          )
+        }
+        
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
