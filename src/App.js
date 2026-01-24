@@ -9,6 +9,7 @@ import Header from './component/Header';
 import Footer from './component/Footer';
 import Shipping from './pages/Shipping';
 import Payment from './pages/Payment';
+import PlaceOrder from './pages/PlaceOrder';
 function App() {
   return (
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile" element={<UpdateProfile />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/placeorder" element={<PlaceOrder />} />
 
       </Routes>
       <Footer />

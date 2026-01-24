@@ -31,7 +31,7 @@ const ProductDetails = () => {
                     <div className="col-md-3 m-2">
                         <img src={PROXY+product.image} alt={product.name} style={{width: "90%", borderRadius:'7px'}} />
                         <h2>{product.name}</h2>
-                         <p>Price: ${product.price}</p>
+                         <p>Price: ₦{product.price}</p>
                           <div>
                             <p>{product.review}</p>
                         </div>

@@ -9,6 +9,7 @@ import  loginReducer  from './component/slice/loginslice';
 import  registerReducer  from './component/slice/registerslice';
 import updateProfileReducer from './component/slice/updateProfile';
 import Shippingreducer from './component/slice/shippingslice';
+import paymentReducer from './component/slice/paymentslice';
 
 
 const store = configureStore({
@@ -20,6 +21,7 @@ const store = configureStore({
         register: registerReducer,
         updateProfile: updateProfileReducer,
         shipping: Shippingreducer,
+        payment: paymentReducer,
 
     },
    
