@@ -9,7 +9,12 @@ export const fetchUserInfo = createAsyncThunk(
     try {
       console.log('Attempting login with:', { username, password });
       const response = await axios.post(PROXY + 'api/token/', { username, password });
-      console.log('Login response:', response.data);
+      console.log('Full Login response:', response.data);
+      console.log('Token fields in response:', {
+        access: response.data.access,
+        refresh: response.data.refresh,
+        token: response.data.token
+      });
       return response.data; 
     } catch (error) {
       console.error('Login error response:', error.response?.data);
@@ -43,7 +48,9 @@ const loginSlice = createSlice({
       .addCase(fetchUserInfo.fulfilled, (state, action) => {
         state.loading = false;
         state.userInfo = action.payload;
+        console.log('Storing userInfo in Redux:', action.payload);
         localStorage.setItem('userInfo', JSON.stringify(action.payload));
+        console.log('Stored in localStorage:', JSON.parse(localStorage.getItem('userInfo')));
       })
       .addCase(fetchUserInfo.rejected, (state, action) => {
         state.loading = false;

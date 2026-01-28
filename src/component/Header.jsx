@@ -25,24 +25,23 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link as={Link} to={'/'} ><RiHome3Fill />Home </Nav.Link>
             <Nav.Link as={Link} to={'/Cart'}> <FaOpencart  />Cart </Nav.Link>
-            {userInfo ? (
+            {/* {userInfo ? (
               <Nav.Link as={Link} to={'/profile'}> {userInfo.name} </Nav.Link>
+            ) : null} */}
+            {!userInfo ? (
+              <Nav.Link as={Link} to={'/login'}> Login </Nav.Link>
             ) : null}
             {userInfo ? (
-              <Nav.Link as={Link} to={'/'} onClick={() => handlelogout()}> Logout </Nav.Link>
-            ) : <Nav.Link as={Link} to={'/login'}> Login </Nav.Link>}
-            
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown" >
-              <NavDropdown.Item href="#action/3.1" className='text-dark'>Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" className='text-dark'>
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3" className='text-dark'>Something</NavDropdown.Item>
+            <NavDropdown title={userInfo.name} id="basic-nav-dropdown" >
+              <NavDropdown.Item  as={Link} to={'/profile'} className='text-dark'>Profile</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={'/login'} className='text-dark'>logout</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={'/listorder'} className='text-dark'>My Orders</NavDropdown.Item>
               <NavDropdown.Divider className='bg-dark'/>
-              <NavDropdown.Item href="#action/3.4" className='text-dark'>
-                Separated link
+              <NavDropdown.Item as={Link} to={'/'} onClick={() => handlelogout()} className='text-dark'>
+                Logout
               </NavDropdown.Item>
             </NavDropdown>
+            ) : null}
           </Nav>
         </Navbar.Collapse>
       </Container>

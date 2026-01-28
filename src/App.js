@@ -10,6 +10,8 @@ import Footer from './component/Footer';
 import Shipping from './pages/Shipping';
 import Payment from './pages/Payment';
 import PlaceOrder from './pages/PlaceOrder';
+import Order from './pages/Order';
+import OrderList from './pages/OrderList';
 function App() {
   return (
 
@@ -25,6 +27,8 @@ function App() {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/placeorder" element={<PlaceOrder />} />
+        <Route path="/listorder" element={<OrderList />} />
+        <Route path="/order/:_id/" element={<Order />} />
 
       </Routes>
       <Footer />
