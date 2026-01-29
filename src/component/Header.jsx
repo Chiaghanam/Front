@@ -34,7 +34,7 @@ const Header = () => {
             {userInfo ? (
             <NavDropdown title={userInfo.name} id="basic-nav-dropdown" >
               <NavDropdown.Item  as={Link} to={'/profile'} className='text-dark'>Profile</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={'/login'} className='text-dark'>logout</NavDropdown.Item>
+              {/* <NavDropdown.Item as={Link} to={'/login'} className='text-dark'>logout</NavDropdown.Item> */}
               <NavDropdown.Item as={Link} to={'/listorder'} className='text-dark'>My Orders</NavDropdown.Item>
               <NavDropdown.Divider className='bg-dark'/>
               <NavDropdown.Item as={Link} to={'/'} onClick={() => handlelogout()} className='text-dark'>
@@ -42,6 +42,12 @@ const Header = () => {
               </NavDropdown.Item>
             </NavDropdown>
             ) : null}
+            {userInfo?.is_staff ? (
+              <NavDropdown title="Admin" id="basic-nav-dropdown_forAdmin" >
+              <NavDropdown.Item  as={Link} to={'/listuser'} className='text-dark'>users</NavDropdown.Item>
+              {/* <NavDropdown.Item  as={Link} to={'/user/edit/:id/'} className='text-dark'>users</NavDropdown.Item> */}
+            </NavDropdown>
+            ):null}
           </Nav>
         </Navbar.Collapse>
       </Container>

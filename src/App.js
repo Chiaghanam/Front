@@ -12,7 +12,10 @@ import Payment from './pages/Payment';
 import PlaceOrder from './pages/PlaceOrder';
 import Order from './pages/Order';
 import OrderList from './pages/OrderList';
+import UserList from './pages/UserList';
+import AdminUpdateUser from './pages/AdminUpdateUser';
 function App() {
+ 
   return (
 
     <Router className="App">
@@ -28,7 +31,9 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="/placeorder" element={<PlaceOrder />} />
         <Route path="/listorder" element={<OrderList />} />
+        <Route path="/listuser" element={<UserList />} />
         <Route path="/order/:_id/" element={<Order />} />
+        <Route path="/user/edit/:id/" element={<AdminUpdateUser />} />
 
       </Routes>
       <Footer />

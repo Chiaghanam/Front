@@ -13,7 +13,10 @@ import paymentReducer from './component/slice/paymentslice';
 import orderReducer from './component/slice/orderslice';
 import  orderprofileReducer  from './component/slice/orderprofileslice';
 import isPaidReducer from './component/slice/isPaidslice'; 
-import myOrdersReducer from './component/slice/myOrderslice'
+import myOrdersReducer from './component/slice/myOrderslice';
+import getUsersReducer from './component/slice/getUserslice';
+import deleteuserReducer from './component/slice/deleteUserslice';
+import adminUpdateUserReducer from './component/slice/adminUpdateUser';
 
 
 const store = configureStore({
@@ -29,7 +32,10 @@ const store = configureStore({
         order: orderReducer,
         orderProfile: orderprofileReducer,
         isPaid: isPaidReducer,
-        myOrders: myOrdersReducer
+        myOrders: myOrdersReducer,
+        getusers: getUsersReducer,
+        deleteuser: deleteuserReducer,
+        adminUpdateUser: adminUpdateUserReducer,
     },
    
     devTools: process.env.NODE_ENV !== 'production',
