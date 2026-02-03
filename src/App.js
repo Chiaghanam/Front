@@ -16,6 +16,7 @@ import UserList from './pages/UserList';
 import AdminUpdateUser from './pages/AdminUpdateUser';
 import AdminProductView from './pages/AdminProductView';
 import AdminProductForm from './pages/AdminProductForm';
+import AdminAllOrder from './pages/AdminAllOrder';
 function App() {
  
   return (
@@ -36,6 +37,9 @@ function App() {
         <Route path="/listuser" element={<UserList />} />
         <Route path="/admin/listproduct" element={<AdminProductView />} />
         <Route path="/admin/createproduct" element={<AdminProductForm />} />
+        <Route path="/admin/allorders" element={<AdminAllOrder />} />
+        
+
         <Route path="/admin/editproduct/:_id/" element={<AdminProductForm />} />
         <Route path="/order/:_id/" element={<Order />} />
         <Route path="/user/edit/:id/" element={<AdminUpdateUser />} />

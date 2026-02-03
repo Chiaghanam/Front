@@ -19,6 +19,7 @@ import deleteuserReducer from './component/slice/deleteUserslice';
 import adminUpdateUserReducer from './component/slice/adminUpdateUser';
 import deleteProductReducer, { deleteproducts } from './component/slice/deleteProductslice';
 import createUpdateProductReducer from './component/slice/createUpdateProduct';
+import adminAllOrdersReducer from './component/slice/adminAllOrderslice';
 
 
 const store = configureStore({
@@ -40,6 +41,7 @@ const store = configureStore({
         adminUpdateUser: adminUpdateUserReducer,
         deleteproducts: deleteProductReducer,
         createUpdateProduct: createUpdateProductReducer,
+        adminAllOrders: adminAllOrdersReducer,
     },
    
     devTools: process.env.NODE_ENV !== 'production',

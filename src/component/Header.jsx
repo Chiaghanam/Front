@@ -17,7 +17,7 @@ const Header = () => {
     dispatch(logout());
   }
   return (
-    <Navbar expand="lg" className="bg-body-dark top-0 position-sticky opacity-100 w-100">
+    <Navbar expand="lg" className="bg-body-dark top-0 position-sticky opacity-100 w-100" style={{zIndex: 9999}}> 
       <Container>
         <Navbar.Brand as={Link} to={'/'}>EShop</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -46,6 +46,7 @@ const Header = () => {
               <NavDropdown title="Admin" id="basic-nav-dropdown_forAdmin" >
               <NavDropdown.Item  as={Link} to={'/listuser'} className='text-dark'>users</NavDropdown.Item>
               <NavDropdown.Item  as={Link} to={'/admin/listproduct'} className='text-dark'>Products</NavDropdown.Item>
+              <NavDropdown.Item  as={Link} to={'/admin/allorders'} className='text-dark'>Orders</NavDropdown.Item>
             </NavDropdown>
             ):null}
           </Nav>

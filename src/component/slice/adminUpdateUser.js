@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { PROXY } from "../Constants/api";
-import { success } from "./deleteUserslice";
+
 
 export const FetchUser = createAsyncThunk(
   "Update/FetchUser",
