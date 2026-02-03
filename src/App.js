@@ -14,6 +14,8 @@ import Order from './pages/Order';
 import OrderList from './pages/OrderList';
 import UserList from './pages/UserList';
 import AdminUpdateUser from './pages/AdminUpdateUser';
+import AdminProductView from './pages/AdminProductView';
+import AdminProductForm from './pages/AdminProductForm';
 function App() {
  
   return (
@@ -32,6 +34,9 @@ function App() {
         <Route path="/placeorder" element={<PlaceOrder />} />
         <Route path="/listorder" element={<OrderList />} />
         <Route path="/listuser" element={<UserList />} />
+        <Route path="/admin/listproduct" element={<AdminProductView />} />
+        <Route path="/admin/createproduct" element={<AdminProductForm />} />
+        <Route path="/admin/editproduct/:_id/" element={<AdminProductForm />} />
         <Route path="/order/:_id/" element={<Order />} />
         <Route path="/user/edit/:id/" element={<AdminUpdateUser />} />
 

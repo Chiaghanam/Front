@@ -45,7 +45,7 @@ const Header = () => {
             {userInfo?.is_staff ? (
               <NavDropdown title="Admin" id="basic-nav-dropdown_forAdmin" >
               <NavDropdown.Item  as={Link} to={'/listuser'} className='text-dark'>users</NavDropdown.Item>
-              {/* <NavDropdown.Item  as={Link} to={'/user/edit/:id/'} className='text-dark'>users</NavDropdown.Item> */}
+              <NavDropdown.Item  as={Link} to={'/admin/listproduct'} className='text-dark'>Products</NavDropdown.Item>
             </NavDropdown>
             ):null}
           </Nav>

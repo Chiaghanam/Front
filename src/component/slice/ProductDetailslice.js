@@ -11,7 +11,7 @@ import axios from 'axios';
    export const ProductDetailslice = createSlice({
         name: 'productDetail',
         initialState: {
-            product: [],
+            product: {}, // Changed from an empty array to an empty object
             loading: false,
             error: null
         },
