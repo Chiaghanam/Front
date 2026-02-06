@@ -8,15 +8,22 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { PROXY } from '../component/Constants/api';
 import StarRating from '../component/StarRating';
-
+import { useLocation } from 'react-router-dom';
 const Home = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const keyword = params.get("query"); 
+
+  console.log(keyword);
+
+
   const dispatch = useDispatch();
   const { data, isloading, error } = useSelector((state) => state.products); 
   const userInfo = useSelector((state) => state.login.userInfo);
 
   useEffect(() => {
-    dispatch(fetchproduct());
-  }, [dispatch]);
+    dispatch(fetchproduct(keyword));
+  }, [dispatch, keyword]);
 
   return (
     <div>

@@ -8,6 +8,7 @@ import { RiHome3Fill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from './slice/loginslice';
+import SearchBar from './SearchBar';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const Header = () => {
             </NavDropdown>
             ):null}
           </Nav>
+           <SearchBar />
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -38,6 +38,7 @@ function App() {
         <Route path="/admin/listproduct" element={<AdminProductView />} />
         <Route path="/admin/createproduct" element={<AdminProductForm />} />
         <Route path="/admin/allorders" element={<AdminAllOrder />} />
+        <Route path='/search' element={<Home />} />
         
 
         <Route path="/admin/editproduct/:_id/" element={<AdminProductForm />} />
