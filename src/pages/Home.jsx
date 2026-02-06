@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { PROXY } from '../component/Constants/api';
+import StarRating from '../component/StarRating';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const Home = () => {
                     <img src={PROXY+product.image} className="card-img-top" alt={product.name} />
                     <div className="card-body">
                       <h5 className="card-title">{product.name}</h5>
+                      <StarRating rating={product.rating} />
                       <p className="card-text">{product.description}</p>
                       <p className="card-text">Price: ₦{product.price}</p>
                     </div>

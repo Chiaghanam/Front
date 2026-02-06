@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import  { fetchOrderProfiles } from '../component/slice/orderprofileslice'
 import { useParams } from 'react-router-dom'
 import {fetchOrderIsPaid} from '../component/slice/isPaidslice'
+import { orderDelivered } from '../component/slice/orderDeliveredslice'
+
 
 
 const Order = () => {
@@ -17,6 +19,11 @@ const Order = () => {
   // sector for ispaid
   const orderIsPaid = useSelector((state) => state.isPaid);
   const { loading: payloading, success: paysuccess } = orderIsPaid;
+  // section for order delivered
+  const userInfo = useSelector((state) => state.login);
+  const { userInfo: user } = userInfo;
+
+
 
 
    const [SdkReady, setSdkReady] = useState(false);
@@ -193,6 +200,14 @@ const Order = () => {
                {/* PayPal Button */}
               {!order.isPaid && (
                 <div ref={paypalRef} style={{ marginTop: '20px' }}></div>
+              )}
+          </div>
+            <div>
+               {/* isdelivered Button */}
+              {user && user.isAdmin && order.isPaid && !order.isDelivered && (
+                <button className="btn btn-success mt-2" onClick={() => dispatch(orderDelivered(order._id))}>
+                  Mark as Delivered
+                </button>
               )}
           </div>
         </div>
