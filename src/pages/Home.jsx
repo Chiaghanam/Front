@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { PROXY } from '../component/Constants/api';
 import StarRating from '../component/StarRating';
 import { useLocation } from 'react-router-dom';
+import TopProductCourosel from '../component/TopProductCourosel';
 const Home = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -33,6 +34,7 @@ const Home = () => {
           <h1>Welcome {userInfo?.name || ''}</h1>
           <p>Your one-stop shop for all your needs!</p>
 
+          {!keyword && <TopProductCourosel />}
           {isloading ? (
             <p>Loading products...</p>
           ) : error ? (
