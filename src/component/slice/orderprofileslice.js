@@ -12,7 +12,7 @@ export const fetchOrderProfiles = createAsyncThunk(
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-    const response = await axios.get(`${PROXY}orders/${_id}/`, config);
+    const response = await axios.get(`${PROXY}/orders/${_id}/`, config);
     return response.data;
   }
 );

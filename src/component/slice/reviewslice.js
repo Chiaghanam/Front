@@ -23,7 +23,7 @@ export const createReview = createAsyncThunk(
       };
 
       const response = await axios.post(
-        `${PROXY}product/${id}/review/`,
+        `${PROXY}/product/${id}/review/`,
         reviewData,
         config
       );

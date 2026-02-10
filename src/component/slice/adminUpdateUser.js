@@ -14,7 +14,7 @@ export const FetchUser = createAsyncThunk(
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-      const response = await axios.get(PROXY + `users/update/${id}/`, config);
+      const response = await axios.get(PROXY + `/users/update/${id}/`, config);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
@@ -35,7 +35,7 @@ export const UpdateUser = createAsyncThunk(
     };
 
       const response = await axios.put(
-        PROXY + `users/update/${id}/`,
+        PROXY + `/users/update/${id}/`,
         data,
         config
       );

@@ -1,9 +1,10 @@
 import React from 'react'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
+import { PROXY } from '../Constants/api';
 
  export const fetchProductDetail = createAsyncThunk('fetchProductDetail', async (id) => {
-        const response = await axios.get(`http://localhost:8000/productDetail/${id}/`);
+        const response = await axios.get(`${PROXY}/productDetail/${id}/`);
         return response.data;
     });
 

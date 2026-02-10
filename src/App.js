@@ -17,6 +17,7 @@ import AdminUpdateUser from './pages/AdminUpdateUser';
 import AdminProductView from './pages/AdminProductView';
 import AdminProductForm from './pages/AdminProductForm';
 import AdminAllOrder from './pages/AdminAllOrder';
+import NotFoundPage from './pages/NotFoundPage';
 function App() {
  
   return (
@@ -39,6 +40,8 @@ function App() {
         <Route path="/admin/createproduct" element={<AdminProductForm />} />
         <Route path="/admin/allorders" element={<AdminAllOrder />} />
         <Route path='/search' element={<Home />} />
+        <Route path="*" element={<NotFoundPage />} />
+
         
 
         <Route path="/admin/editproduct/:_id/" element={<AdminProductForm />} />

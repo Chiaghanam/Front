@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { registerUser } from '../component/slice/registerslice'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const {register, handleSubmit} = useForm()
     const dispatch = useDispatch()
-    const {loading, error, userInfo} = useSelector((state) => state.register)
+    const navigate = useNavigate()
+    const {loading, error, userInfo, success} = useSelector((state) => state.register)
 
     const onregister = (data) => {
         if (data.password !== data.confirm_password) {
@@ -18,6 +20,13 @@ const Register = () => {
             dispatch(registerUser(data));
         }
     }
+
+    useEffect(() => {
+      if (success) {
+        navigate('/login');
+      }
+    }, [success, navigate]);
+
   return (
 <div className="container d-flex justify-content-center align-items-center vh-100">
   <div className="card shadow-sm p-4" style={{ maxWidth: "450px", width: "100%" }}>

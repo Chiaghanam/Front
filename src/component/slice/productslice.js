@@ -1,9 +1,10 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
+import { PROXY } from '../Constants/api';
 // import { PRODUCTS_FAIL, PRODUCTS_REQUEST, PRODUCTS_SUCCESS } from '../Constants/ProductConstants';  
 
 export const fetchproduct = createAsyncThunk('fetchproduct', async(keyword) =>{
-    const response = await axios.get(`http://127.0.0.1:8000/home/?query=${keyword}`)
+    const response = await axios.get(`${PROXY}/home/?query=${keyword}`)
     return response.data;
 
 }  )

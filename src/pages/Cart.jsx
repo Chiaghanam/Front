@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { PROXY } from '../component/Constants/api'
+import { MEDIA_URL } from '../component/Constants/api'
 import { removeFromCart, updateQuantity } from '../component/slice/cartslice'
 import { useNavigate } from 'react-router-dom'
 
@@ -46,7 +47,7 @@ const Cart = () => {
                     {/* Product Image */}
                     <div className="col-md-3 text-center">
                       <img
-                        src={PROXY + cdata.image}
+                        src={MEDIA_URL + cdata.image}
                         alt={cdata.name}
                         className="img-fluid rounded"
                         style={{ maxHeight: '150px' }}

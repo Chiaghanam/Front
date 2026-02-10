@@ -14,7 +14,7 @@ export const deleteproducts = createAsyncThunk(
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-    const response = await axios.delete(`${PROXY}product/delete/${_id}/`, config);
+    const response = await axios.delete(`${PROXY}/product/delete/${_id}/`, config);
     return response.data;
     
     

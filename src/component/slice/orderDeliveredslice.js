@@ -14,7 +14,7 @@ export const orderDelivered = createAsyncThunk(
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-    const response = await axios.put(`${PROXY}orders/${_id}/delivered`,{}, config);
+    const response = await axios.put(`${PROXY}/orders/${_id}/delivered`,{}, config);
     return response.data;
     
     

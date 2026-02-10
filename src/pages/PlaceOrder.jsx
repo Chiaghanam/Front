@@ -5,6 +5,7 @@ import { PROXY } from '../component/Constants/api'
 import { useNavigate } from 'react-router-dom'
 import  { createOrder } from '../component/slice/orderslice'
 import { clearCart } from '../component/slice/cartslice'
+import { MEDIA_URL } from '../component/Constants/api'
 
 
 const PlaceOrder = () => {
@@ -113,7 +114,7 @@ useEffect(() => {
                     <tr key={item._id}>
                       <td>
                         <img
-                          src={PROXY + item.image}
+                          src={MEDIA_URL + item.image}
                           alt={item.name}
                           style={{ width: '80px', height: 'auto' }}
                           className="img-thumbnail"

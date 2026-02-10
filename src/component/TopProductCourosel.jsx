@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import { fetchtopproduct } from './slice/topProductslice'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { PROXY } from './Constants/api'
+import { MEDIA_URL } from './Constants/api'
 
 const TopProductCourosel = () => {
   const dispatch = useDispatch()
@@ -27,7 +27,7 @@ const TopProductCourosel = () => {
                 <Carousel.Item key={product._id}>
                   <Link to={`/product/${product._id}`}>
                     <img
-                      src={PROXY + product.image}
+                      src={MEDIA_URL + product.image}
                       className="d-block mx-auto img-fluid"
                       style={{ maxHeight: '300px', objectFit: 'cover' }}
                       alt={product.name}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {PROXY} from '../Constants/api';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 
 
 export const fetchUserInfo = createAsyncThunk(
@@ -8,7 +9,7 @@ export const fetchUserInfo = createAsyncThunk(
   async ({ username, password }, thunkAPI) => {
     try {
       console.log('Attempting login with:', { username, password });
-      const response = await axios.post(PROXY + 'api/token/', { username, password });
+      const response = await axios.post(PROXY + '/api/token/', { username, password });
       console.log('Full Login response:', response.data);
       console.log('Token fields in response:', {
         access: response.data.access,
@@ -23,8 +24,10 @@ export const fetchUserInfo = createAsyncThunk(
     }
   }
 );
+// const register = useSelector((state) => state.register);
 
 const loginSlice = createSlice({
+  
   name: 'login',
   initialState: {
     userInfo: localStorage.getItem('userInfo')
@@ -37,6 +40,7 @@ const loginSlice = createSlice({
     logout: (state) => {
       state.userInfo = null;
       localStorage.removeItem('userInfo');
+
     },
   },
   extraReducers: (builder) => {

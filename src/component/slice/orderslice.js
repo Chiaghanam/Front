@@ -39,7 +39,7 @@ export const createOrder = createAsyncThunk(
       
       console.log('Authorization header will be:', `Bearer ${token.substring(0, 20)}...`);
       
-      const response = await axios.post(PROXY + 'orders/add/', orderItems, {
+      const response = await axios.post(PROXY + '/orders/add/', orderItems, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`

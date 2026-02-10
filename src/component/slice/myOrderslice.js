@@ -13,7 +13,7 @@ export const fetchMyOrders = createAsyncThunk(
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-    const response = await axios.get(`${PROXY}myorders/`, config);
+    const response = await axios.get(`${PROXY}/myorders/`, config);
     return response.data;
     
     

@@ -13,7 +13,7 @@ export const fetchusers = createAsyncThunk(
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-    const response = await axios.get(`${PROXY}users/`, config);
+    const response = await axios.get(`${PROXY}/users/`, config);
     return response.data;
     
     

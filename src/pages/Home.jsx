@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { PROXY } from '../component/Constants/api';
+import { MEDIA_URL } from '../component/Constants/api';
 import StarRating from '../component/StarRating';
 import { useLocation } from 'react-router-dom';
 import TopProductCourosel from '../component/TopProductCourosel';
@@ -45,7 +46,7 @@ const Home = () => {
                 <div  className="col-md-4 mb-4">
                   <Link key={product._id} to={`/product/${product._id}`}>
                   <div className="card" >
-                    <img src={PROXY+product.image} className="card-img-top" alt={product.name} />
+                    <img src={MEDIA_URL + product.image} className="card-img-top" alt={product.name} />
                     <div className="card-body">
                       <h5 className="card-title">{product.name}</h5>
                       <StarRating rating={product.rating} />

@@ -14,7 +14,7 @@ export const fetchOrderIsPaid = createAsyncThunk('put/fetchOrderIsPaid',
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-    const response = await axios.put(`${PROXY}orders/${_id}/pay`,paymentResult, config);
+    const response = await axios.put(`${PROXY}/orders/${_id}/pay`,paymentResult, config);
     return response.data;
   }
 ) 

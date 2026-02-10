@@ -13,7 +13,7 @@ export const FetchOrders = createAsyncThunk(
         'Authorization': `Bearer ${userInfo?.access}`,
       },
     };
-      const response = await axios.get(PROXY +'orders/', config);
+      const response = await axios.get(PROXY +'/orders/', config);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);

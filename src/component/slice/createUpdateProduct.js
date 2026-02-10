@@ -13,7 +13,7 @@ export const createProduct = createAsyncThunk(
           Authorization: `Bearer ${userInfo?.access}`,
         },
       };
-      const response = await axios.post(`${PROXY}product/create/`, formDataObj, config);
+      const response = await axios.post(`${PROXY}/product/create/`, formDataObj, config);
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.detail || err.message);
@@ -32,7 +32,7 @@ export const updateProduct = createAsyncThunk(
           Authorization: `Bearer ${userInfo?.access}`,
         },
       };
-      const response = await axios.put(`${PROXY}product/edit/${_id}/`, formData, config);
+      const response = await axios.put(`${PROXY}/product/edit/${_id}/`, formData, config);
       return response.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.detail || err.message);

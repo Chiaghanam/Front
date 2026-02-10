@@ -7,6 +7,7 @@ import { addToCart } from '../component/slice/cartslice';
 import StarRating from '../component/StarRating';
 import { useForm } from 'react-hook-form'
 import { createReview, resetReview } from '../component/slice/reviewslice';
+import { MEDIA_URL } from '../component/Constants/api';
 
 const ProductDetails = () => {
     const dispatch = useDispatch();
@@ -70,7 +71,7 @@ const ProductDetails = () => {
                         <div className="col-md-5">
                             <div className="card border-0 shadow-sm">
                                 <img 
-                                    src={PROXY + product.image} 
+                                    src={MEDIA_URL + product.image} 
                                     alt={product.name} 
                                     className="card-img-top rounded"
                                     style={{ objectFit: 'cover', maxHeight: '400px' }}

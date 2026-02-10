@@ -4,7 +4,7 @@ import { PROXY } from '../Constants/api';
 // import { PRODUCTS_FAIL, PRODUCTS_REQUEST, PRODUCTS_SUCCESS } from '../Constants/ProductConstants';  
 
 export const fetchtopproduct = createAsyncThunk('fetchtopproduct', async() =>{
-    const response = await axios.get(`${PROXY}topproducts/`)
+    const response = await axios.get(`${PROXY}/topproducts/`)
     return response.data;
 
 }  )
